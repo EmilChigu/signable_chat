@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+ROOT_DIR="$(cd -- "$(dirname "$0")/.." && pwd)"
+SAIL_BIN="$ROOT_DIR/vendor/bin/sail"
+
+if [ ! -x "$SAIL_BIN" ]; then
+    echo "Sail binary not found at $SAIL_BIN. Skipping pre-commit checks..."
+    exit 0
+fi
+
+if ! (cd "$ROOT_DIR" && "$SAIL_BIN" ps > /dev/null 2>&1); then
+    echo "Sail is not running. Skipping pre-commit checks..."
+    exit 0
+fi
+
+run_sail() {
+    (cd "$ROOT_DIR" && "$SAIL_BIN" "$@")
+}
+
+run_sail bin pest --parallel
+run_sail bin phpstan analyse --memory-limit=512M
+run_sail bin pint
