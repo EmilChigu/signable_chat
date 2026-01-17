@@ -17,7 +17,9 @@ class ChatController extends Controller
 
     public function index(): Response
     {
-        return Inertia::render('ChatRoom');
+        $messages = $this->chatMessageService->getMessages();
+
+        return Inertia::render('ChatRoom', compact('messages'));
     }
 
     public function store(SendChatMessageRequest $request): RedirectResponse

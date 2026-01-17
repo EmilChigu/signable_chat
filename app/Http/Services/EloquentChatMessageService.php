@@ -4,6 +4,7 @@ namespace App\Http\Services;
 
 use App\Http\Interfaces\ChatMessageInterface;
 use App\Models\ChatMessage;
+use Illuminate\Contracts\Pagination\Paginator;
 
 class EloquentChatMessageService implements ChatMessageInterface
 {
@@ -16,8 +17,9 @@ class EloquentChatMessageService implements ChatMessageInterface
         ]);
     }
 
-    public function getMessages()
+    public function getMessages(): Paginator
     {
-        // TODO: Implement getChatMessages() method.
+        //        TODO: Implement pagination properly on the frontend
+        return ChatMessage::query()->latest()->simplePaginate(50);
     }
 }
