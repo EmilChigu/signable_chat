@@ -1,8 +1,15 @@
 <?php
 
+use App\Http\Controllers\JoinTeamChatController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome');
-})->name('home');
+
+Route::controller(JoinTeamChatController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::post('/', 'store')->name('join');
+});
+
+
+Route::get('/chat', function () {
+    return 'Chat Room';
+})->name('chat');
