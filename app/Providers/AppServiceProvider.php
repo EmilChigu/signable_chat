@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Http\Interfaces\ChatMessageInterface;
+use App\Http\Services\EloquentChatMessageService;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
@@ -10,6 +12,10 @@ use Illuminate\Validation\Rules\Password;
 
 class AppServiceProvider extends ServiceProvider
 {
+
+    public $bindings = [
+        ChatMessageInterface::class => EloquentChatMessageService::class,
+    ];
     /**
      * Register any application services.
      */
