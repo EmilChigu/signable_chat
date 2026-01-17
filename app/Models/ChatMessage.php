@@ -14,6 +14,8 @@ class ChatMessage extends Model
      * @var \Illuminate\Support\HigherOrderCollectionProxy|mixed
      */
     public mixed $message;
+
     public mixed $username;
+
     protected $fillable = ['username', 'message'];
 }
