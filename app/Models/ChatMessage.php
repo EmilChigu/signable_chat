@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use phpDocumentor\Reflection\DocBlock\Tags\Property;
 
 class ChatMessage extends Model
 {
@@ -12,5 +11,4 @@ class ChatMessage extends Model
     use HasFactory;
 
     protected $fillable = ['username', 'message'];
-
 }

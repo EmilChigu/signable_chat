@@ -22,7 +22,7 @@ class JoinTeamChatRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => 'required|string|min:3|max:255'
+            'username' => 'required|string|min:3|max:255',
         ];
     }
 }

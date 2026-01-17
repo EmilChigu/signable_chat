@@ -12,10 +12,10 @@ use Illuminate\Validation\Rules\Password;
 
 class AppServiceProvider extends ServiceProvider
 {
-
     public $bindings = [
         ChatMessageInterface::class => EloquentChatMessageService::class,
     ];
+
     /**
      * Register any application services.
      */

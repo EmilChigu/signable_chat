@@ -4,29 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Http\Interfaces\ChatMessageInterface;
 use App\Http\Requests\SendChatMessageRequest;
-use App\Models\ChatMessage;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class ChatController extends Controller
 {
-
     public function __construct(private readonly ChatMessageInterface $chatMessageService)
     {
         //
     }
-    public function index(){
+
+    public function index(): Response
+    {
         return Inertia::render('ChatRoom');
     }
-    
-    public function store(SendChatMessageRequest $request){
+
+    public function store(SendChatMessageRequest $request): RedirectResponse
+    {
 
         $validated = $request->validated();
-        $message = $validated['message'];
-        $username = $request->session()->get('username');
+        $message = (string) $validated['message'];
+        $username = (string) $request->session()->get('username', '');
 
-        $this->chatMessageService->send($username, $message);
+        try {
+            $this->chatMessageService->send($username, $message);
 
-        return back();
+            return back()->with('success', 'Message sent successfully');
+
+        } catch (\Exception $e) {
+            return back()->with('error', 'Failed to send message');
+        }
     }
 }

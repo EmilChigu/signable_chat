@@ -7,11 +7,10 @@ use App\Models\ChatMessage;
 
 class EloquentChatMessageService implements ChatMessageInterface
 {
-
-    public function send(string $username, string $message)
+    public function send(string $username, string $message): void
     {
 
-        return ChatMessage::create([
+        ChatMessage::create([
             'username' => $username,
             'message' => $message,
         ]);

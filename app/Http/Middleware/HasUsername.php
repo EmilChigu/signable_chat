@@ -15,7 +15,7 @@ class HasUsername
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!$request->session()->has('username')) {
+        if (! $request->session()->has('username')) {
             return redirect()->route('home');
         }
 
