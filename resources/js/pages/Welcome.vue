@@ -35,7 +35,7 @@ function submit() {
                 <form @submit.prevent="submit" class="space-y-6">
                     <div>
                         <label class="mb-2"> What should we call you this time? </label>
-                        <input type="text" placeholder="e.g. R2D2" class="input" autofocus v-model="form.username" id="username" />
+                        <input type="text" placeholder="e.g. R2D2" class="input mt-3" autofocus v-model="form.username" id="username" />
                         <div v-if="errors?.username" class="mt-2 px-1 text-sm font-medium text-error">
                             {{ errors.username }}
                         </div>

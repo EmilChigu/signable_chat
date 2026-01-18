@@ -19,7 +19,11 @@
 }
 
 @utility input {
-    @apply w-full px-5 py-4 bg-gray-50 border-2 border-transparent rounded-base mt-3
+    @apply w-full px-5 py-4 bg-gray-50 border-2 border-transparent rounded-base
      focus:bg-white focus:ring-1
     outline-none transition-all text-lg placeholder:text-gray-400;
+}
+
+.overflow-y-auto {
+    scroll-behavior: smooth;
 }
