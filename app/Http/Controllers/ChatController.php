@@ -35,6 +35,9 @@ class ChatController extends Controller
             return back()->with('success', 'Message sent successfully');
 
         } catch (\Exception $e) {
+            //            TODO: create a custom exception
+            report($e);
+
             return back()->withErrors(['error' => 'Failed to send message']);
         }
     }
