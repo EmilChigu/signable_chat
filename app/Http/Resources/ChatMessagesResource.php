@@ -14,7 +14,7 @@ class ChatMessagesResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-//        TODO: map correct response
+        //        TODO: map correct response
         return parent::toArray($request);
     }
 }

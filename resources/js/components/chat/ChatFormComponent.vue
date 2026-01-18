@@ -31,7 +31,7 @@ function submit() {
         <form @submit.prevent="submit" class="space-y-6">
             <div class="flex items-center gap-3">
                 <textarea type="text" class="min-h-[100px] input flex-1 rounded-base py-2" autofocus v-model="form.message" id="message" />
-                <button type="submit" class="btn-primary h-16 w-16 rounded-full" :disabled="form.processing || !isValid"></button>
+                <button type="submit" class="btn-primary h-16 w-16 rounded-full" :disabled="form.processing || !isValid">Send</button>
             </div>
             <div v-if="errors?.message" class="mt-2 px-1 text-sm font-medium text-error">
                 {{ errors.message }}
