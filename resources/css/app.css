@@ -3,6 +3,23 @@
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
-@theme inline {
+@theme {
     --font-sans: Instrument Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-primary: #0095E6;
+    --color-error: #dc3545;
+    --color-my-message: #FEFEFE;
+    --color-other-message: #80D2FF;
+    --color-chat-bg: #F7F7F7;
+
+    --radius-base: 0.5rem;
+}
+
+@utility btn-primary {
+    @apply bg-primary hover:bg-other-message text-white font-extrabold py-4 rounded-base shadow-lg transform active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-2 w-full;
+}
+
+@utility input {
+    @apply w-full px-5 py-4 bg-gray-50 border-2 border-transparent rounded-base mt-3
+     focus:bg-white focus:ring-1
+    outline-none transition-all text-lg placeholder:text-gray-400;
 }
