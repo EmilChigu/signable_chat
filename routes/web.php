@@ -12,5 +12,5 @@ Route::controller(JoinTeamChatController::class)->group(function () {
 
 Route::controller(ChatController::class)->middleware(HasUsername::class)->group(function () {
     Route::get('/chat', 'index')->name('chat');
-    Route::post('/chat', 'store')->name('chat.send');
+    Route::post('/chat', 'store')->name('chat.send')->middleware('throttle:10,1');
 });
