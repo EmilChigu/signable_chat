@@ -9,11 +9,11 @@ const formatDate = (date: string) => {
 
 <template>
     <div class="mb-4 flex max-w-[70%] flex-col gap-1" :class="{ 'ml-auto': mine }">
-        <span v-if="!mine" class="text-xs">{{ sentBy }}</span>
+        <span id="sent-by" v-if="!mine" class="text-xs">{{ sentBy }}</span>
         <div class="rounded-base bg-other-message p-3" :class="{ 'bg-white': mine }">
-            <p>{{ message }}</p>
+            <p id="message">{{ message }}</p>
         </div>
-        <span class="text-xs">{{ dateSent ? formatDate(dateSent) : '' }}</span>
+        <span id="sent-date" class="text-xs">{{ dateSent ? formatDate(dateSent) : '' }}</span>
     </div>
 </template>
 
