@@ -51,6 +51,7 @@ Vue 3 + TypeScript frontend rendered through Inertia. Source lives under `resour
 Run the entire client test suite:
 ```bash
 cd /Users/emilchigu/Desktop/Dev/signable_chat
+npm run build (if the app is not already built or running in dev mode)
 npm run test
 ```
 
