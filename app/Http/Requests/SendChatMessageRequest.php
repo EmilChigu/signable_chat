@@ -21,7 +21,6 @@ class SendChatMessageRequest extends FormRequest
      */
     public function rules(): array
     {
-        //        TODO: need a mas value (research)
         return [
             'message' => 'required|string|min:1',
         ];

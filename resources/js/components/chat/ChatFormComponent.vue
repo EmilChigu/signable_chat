@@ -12,7 +12,6 @@ const form = useForm<IChatMessageForm>({
     message: '',
 });
 
-// TODO: add proper validation with veevalidate + yup
 const isValid = computed(() => form.message && form.message.length >= 1);
 
 function submit() {

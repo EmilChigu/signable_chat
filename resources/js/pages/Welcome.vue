@@ -4,7 +4,6 @@ import { computed } from 'vue';
 
 defineProps({ errors: Object });
 
-// TODO: move to separate file
 interface IJoinChatForm {
     username: string;
 }
@@ -13,7 +12,6 @@ const form = useForm<IJoinChatForm>({
     username: '',
 });
 
-// TODO: add proper validation with veevalidate + yup
 const isValid = computed(() => form.username && form.username.length > 3);
 
 function submit() {
@@ -40,9 +38,7 @@ function submit() {
                             {{ errors.username }}
                         </div>
                     </div>
-
-
-<!--                    TODO: Add loading spinner-->
+                    
                     <button type="submit" class="btn-primary" :disabled="form.processing || !isValid">Start Chatting</button>
                 </form>
             </div>

@@ -38,7 +38,6 @@ onMounted(() => {
 
 usePoll(3000, {
     onFinish() {
-    // TODO: check is the user is typing or at the bottom so we auto scroll??
     },
 });
 </script>

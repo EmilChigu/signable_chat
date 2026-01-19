@@ -19,7 +19,6 @@ class EloquentChatMessageService implements ChatMessageInterface
 
     public function getMessages(): Paginator
     {
-        //        TODO: Implement pagination properly on the frontend
         return ChatMessage::query()->latest()->simplePaginate(50);
     }
 }
