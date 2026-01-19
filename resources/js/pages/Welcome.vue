@@ -38,7 +38,7 @@ function submit() {
                             {{ errors.username }}
                         </div>
                     </div>
-                    
+
                     <button type="submit" class="btn-primary" :disabled="form.processing || !isValid">Start Chatting</button>
                 </form>
             </div>
