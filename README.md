@@ -43,3 +43,4 @@ touch database/database.sqlite
 ## Documentation
 - [Backend reference](documentation/backend/README.md)
 - [Client reference](documentation/client/README.md)
+- [Diagram](basic_architectural_diagram.png)

@@ -2,7 +2,7 @@
 
 # Signable Chat – Backend
 
-Laravel 12 + Sail backend that exposes a minimal session-gated chat API and renders Inertia components.
+Laravel 12 project that exposes a simple chat api with Inertia.js frontend.
 
 ## Stack & Tooling
 - Laravel Sail (Dockerized runtime) with PHP 8.5.1
@@ -10,9 +10,9 @@ Laravel 12 + Sail backend that exposes a minimal session-gated chat API and rend
 - SQLite by default (`database/database.sqlite`) but configurable via `.env`
 
 ## Domain Model
-| Model | Fields | Notes |
-| --- | --- | --- |
-| `ChatMessage` | `username`, `message` | Fillable, timestamps enabled, defined in `app/Models/ChatMessage.php`.
+| Model | Fields                                | Notes |
+| --- |---------------------------------------| --- |
+| `ChatMessage` | `username`, `message`, `created_at`, `updated_at` | defined in `app/Models/ChatMessage.php`.
 
 Migration: `database/migrations/2026_01_17_170556_create_chat_messages_table.php` creates the table.
 
@@ -61,3 +61,17 @@ Execute the full suite via Sail:
 ```bash
 ./vendor/bin/sail test
 ```
+
+## Future Improvements
+- Use Laravel Reverb to broadcast chat messages over websockets instead of polling for real-time updates.
+- Enforce unique usernames (database constraint + validation).
+- Harden validation rules (e.g., profanity filters, max lengths).
+- Introduce dedicated Eloquent scopes (e.g., `ChatMessage::latestFirst()`, `recent()`) to keep query intent inside the model.
+- Create custom exception types (e.g., `UsernameNotSetException`, `MessageSendException`) and map them to structured JSON/Inertia responses.
+- Expand feature tests to cover edge cases: oversized payloads, rapid submissions, session expiry, database failures.
+- Expand rate limiting and throttling to chat and login specific endpoints.
+- Add queueing for content moderation and message persistence.
+- Add caching for chat messages and user sessions.
+- Add Sentry for performance monitoring and error reporting.
+- Implement content sanitization (HTML purify) and escaping utilities before persisting/rendering chat text.
+- Introduce and map API resources (`ChatMessageResource`) for consistent JSON formatting and added layer of security.
