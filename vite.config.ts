@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 import { wayfinder } from '@laravel/vite-plugin-wayfinder';
 import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
@@ -24,6 +25,11 @@ export default defineConfig({
             formVariants: true,
         }),
     ],
+    resolve: {
+        alias: {
+            '@': fileURLToPath(new URL('./resources/js', import.meta.url)),
+        },
+    },
     test: {
         include: [
             'resources/js/**/*.test.ts',
