@@ -10,7 +10,7 @@
         "format:check": "prettier --check resources/",
         "lint": "eslint . --fix",
         "prepare": "husky",
-        "test": "vitest",
+        "test": "vitest run",
         "coverage": "vitest run --coverage",
         "vitest-ui": "vitest --ui"
     },
