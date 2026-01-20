@@ -19,7 +19,7 @@ docker run --rm \
     -u "$(id -u):$(id -g)" \
     -v "$(pwd):/var/www/html" \
     -w /var/www/html \
-    laravelsail/php83-composer:latest \
+    laravelsail/php84-composer:latest \
     composer install --ignore-platform-reqs
 
 # 3. Setup environment and Database
@@ -38,6 +38,9 @@ touch database/database.sqlite
 
 # 7. Start the fontend app
 ./vendor/bin/sail npm run dev
+
+# 8. Visit 
+http://localhost to see the app
 ```
 
 ## Documentation
